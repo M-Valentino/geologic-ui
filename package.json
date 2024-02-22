@@ -1,7 +1,7 @@
 {
   "name": "geologic-ui",
-  "version": "1.0.2",
-  "description": "A simple template for a custom React component library",
+  "version": "1.0.3",
+  "description": "A 90's web design inspired component library.",
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
