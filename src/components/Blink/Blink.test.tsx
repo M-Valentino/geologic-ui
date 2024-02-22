@@ -5,6 +5,6 @@ import Blink from "./Blink";
 
 describe("Center", () => {
   test("renders the Center component", () => {
-    render(<Blink>Centered text!</Blink>);
+    render(<Blink>Blinking text!</Blink>);
   });
 });
