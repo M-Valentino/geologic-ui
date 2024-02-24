@@ -38,6 +38,6 @@ Large.args = {
 
 export const LightBlue = Template.bind({});
 LightBlue.args = {
-  label: 'Large',
+  label: 'Light Blue color',
   color: "#aaf"
 };
