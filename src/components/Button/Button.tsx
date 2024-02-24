@@ -37,7 +37,6 @@ const Button = (props: ButtonProps) => {
 
   const calculateBorderColor = (borders: string): string => {
     const colorSubS = baseColor.substring(1);
-    // Convert the color to RGB
     const r = parseInt(colorSubS[0], 16);
     const g = parseInt(colorSubS[1], 16);
     const b = parseInt(colorSubS[2], 16);
@@ -47,7 +46,6 @@ const Button = (props: ButtonProps) => {
       return Math.min(15, result).toString(16);
     };
 
-    // Add 2 to each color channel
     const newR = calcColorChannel(r);
     const newG = calcColorChannel(g);
     const newB = calcColorChannel(b);
@@ -60,6 +58,7 @@ const Button = (props: ButtonProps) => {
         // all and outline are for maintaining compatbility accross browsers.
         all: "unset",
         outline: "revert",
+        cursor: "pointer",
         borderTop: `${getBorderSize()}px solid ${calculateBorderColor("tl")}`,
         borderRight: `${getBorderSize()}px solid ${calculateBorderColor("br")}`,
         borderBottom: `${getBorderSize()}px solid ${calculateBorderColor(
