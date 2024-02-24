@@ -29,21 +29,6 @@ const Button = (props: ButtonProps) => {
     }
   };
 
-  const getBorderSize = () => {
-    switch (props.size || "") {
-      case "sm":
-        return 2;
-      case "md":
-        return 3;
-      case "lg":
-        return 4;
-      case "xl":
-        return 5;
-      default:
-        return 2;
-    }
-  };
-
   const calcMouseDownBGColor = (): string => {
     const colorSubS = baseColor.substring(1);
     const r = parseInt(colorSubS[0], 16);
