@@ -82,6 +82,7 @@ const Button = (props: ButtonProps) => {
         outline: "revert",
         cursor: "pointer",
         userSelect: "none",
+        fontFamily: "sans-serif",
         borderTop: `${getBorderSize()}px solid ${calculateBorderColor(
           isMouseDown ? "dark" : "light"
         )}`,
@@ -96,8 +97,10 @@ const Button = (props: ButtonProps) => {
         )}`,
         backgroundColor: isMouseDown ? calcMouseDownBGColor() : baseColor,
         fontSize: getTextSize(),
-        paddingLeft: getTextSize() / 2,
-        paddingRight: getTextSize() / 2,
+        paddingLeft: getTextSize(),
+        paddingRight: getTextSize(),
+        paddingTop: getTextSize() / 3,
+        paddingBottom: getTextSize() / 3,
       }}
     >
       {props.label}
