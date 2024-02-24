@@ -21,19 +21,25 @@ HelloWorld.args = {
 export const Small = Template.bind({});
 Small.args = {
   label: 'Small',
-  size: "small"
+  size: "sm"
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   label: 'Medium',
-  size: "medium"
+  size: "md"
 };
 
 export const Large = Template.bind({});
 Large.args = {
   label: 'Large',
-  size: "large"
+  size: "lg"
+};
+
+export const XtraLarge = Template.bind({});
+XtraLarge.args = {
+  label: 'Xtra Large',
+  size: "xl"
 };
 
 export const LightBlue = Template.bind({});

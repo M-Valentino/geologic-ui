@@ -13,26 +13,30 @@ const Button = (props: ButtonProps) => {
 
   const getTextSize = () => {
     switch (props.size || "") {
-      case "small":
+      case "sm":
+        return 12;
+      case "md":
         return 16;
-      case "medium":
+      case "lg":
         return 20;
-      case "large":
+      case "xl":
         return 24;
       // If there is no size passed in props
       default:
-        return 16;
+        return 12;
     }
   };
 
   const getBorderSize = () => {
     switch (props.size || "") {
-      case "small":
+      case "sm":
         return 2;
-      case "medium":
+      case "md":
         return 3;
-      case "large":
+      case "lg":
         return 4;
+      case "xl":
+        return 5;
       default:
         return 2;
     }
