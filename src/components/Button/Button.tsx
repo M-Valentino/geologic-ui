@@ -81,6 +81,7 @@ const Button = (props: ButtonProps) => {
         all: "unset",
         outline: "revert",
         cursor: "pointer",
+        userSelect: "none",
         borderTop: `${getBorderSize()}px solid ${calculateBorderColor(
           isMouseDown ? "dark" : "light"
         )}`,
