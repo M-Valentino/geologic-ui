@@ -35,3 +35,9 @@ Large.args = {
   label: 'Large',
   size: "large"
 };
+
+export const LightBlue = Template.bind({});
+LightBlue.args = {
+  label: 'Large',
+  color: "#aaf"
+};
