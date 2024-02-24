@@ -47,3 +47,9 @@ LightBlue.args = {
   label: 'Light Blue color',
   color: "#aaf"
 };
+
+export const RedText = Template.bind({});
+RedText.args = {
+  label: 'Red Text',
+  labelColor: "#f00"
+};

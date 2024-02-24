@@ -4,6 +4,7 @@ export interface ButtonProps {
   label: string;
   size?: string;
   color?: string;
+  labelColor?: string;
 }
 
 const Button = (props: ButtonProps) => {
@@ -96,6 +97,7 @@ const Button = (props: ButtonProps) => {
         )}`,
         backgroundColor: isMouseDown ? calcMouseDownBGColor() : baseColor,
         fontSize: getTextSize(),
+        color: props.labelColor || "#000",
         paddingLeft: getTextSize(),
         paddingRight: getTextSize(),
         paddingTop: getTextSize() / 3,
