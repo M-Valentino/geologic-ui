@@ -2782,38 +2782,73 @@ if (process.env.NODE_ENV === 'production') {
 
 var React = react.exports;
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z = "button {\n  font-size: 60px;\n}";
-styleInject(css_248z);
+var calculateBorderColor = function (baseColor, borders) {
+    var colorSubS = baseColor.substring(1);
+    var r = parseInt(colorSubS[0], 16);
+    var g = parseInt(colorSubS[1], 16);
+    var b = parseInt(colorSubS[2], 16);
+    var calcColorChannel = function (val) {
+        var result = borders === "light" ? val + 3 : val - 4;
+        if (result < 0) {
+            return "0";
+        }
+        return Math.min(15, result).toString(16);
+    };
+    var newR = calcColorChannel(r);
+    var newG = calcColorChannel(g);
+    var newB = calcColorChannel(b);
+    return "#".concat(newR).concat(newG).concat(newB);
+};
 
 var Button = function (props) {
-    return React.createElement("button", null, props.label);
+    var baseColor = props.color || "#ccc";
+    var _a = react.exports.useState(false), isMouseDown = _a[0], setIsMouseDown = _a[1];
+    var getTextSize = function () {
+        switch (props.size || "") {
+            case "sm":
+                return 12;
+            case "md":
+                return 16;
+            case "lg":
+                return 20;
+            case "xl":
+                return 24;
+            // If there is no size passed in props
+            default:
+                return 12;
+        }
+    };
+    var calcMouseDownBGColor = function () {
+        var colorSubS = baseColor.substring(1);
+        var r = parseInt(colorSubS[0], 16);
+        var g = parseInt(colorSubS[1], 16);
+        var b = parseInt(colorSubS[2], 16);
+        var calcColorChannel = function (val) {
+            var result = Math.min(15, val - 1);
+            if (result < 0) {
+                return "0";
+            }
+            return result.toString(16);
+        };
+        var newR = calcColorChannel(r);
+        var newG = calcColorChannel(g);
+        var newB = calcColorChannel(b);
+        return "#".concat(newR).concat(newG).concat(newB);
+    };
+    return (React.createElement("button", { onMouseDown: function () { return setIsMouseDown(true); }, onMouseUp: function () { return setIsMouseDown(false); }, onMouseLeave: function () { return setIsMouseDown(false); }, style: {
+            cursor: "pointer",
+            borderTop: "2px solid ".concat(calculateBorderColor(baseColor, isMouseDown ? "dark" : "light")),
+            borderRight: "2px solid ".concat(calculateBorderColor(baseColor, isMouseDown ? "light" : "dark")),
+            borderBottom: "2px solid ".concat(calculateBorderColor(baseColor, isMouseDown ? "light" : "dark")),
+            borderLeft: "2px solid ".concat(calculateBorderColor(baseColor, isMouseDown ? "dark" : "light")),
+            backgroundColor: isMouseDown ? calcMouseDownBGColor() : baseColor,
+            fontSize: getTextSize(),
+            color: props.labelColor || "#000",
+            paddingLeft: getTextSize(),
+            paddingRight: getTextSize(),
+            paddingTop: getTextSize() / 3,
+            paddingBottom: getTextSize() / 3,
+        } }, props.label));
 };
 
 var Center = function (props) {
@@ -2835,7 +2870,34 @@ var Blink = function (props) {
         React.createElement("span", { className: "blink" }, children)));
 };
 
+var HR = function (props) {
+    var baseColor = props.color || "#ccc";
+    var getHeight = function () {
+        switch (props.size || "") {
+            case "sm":
+                return "initial";
+            case "md":
+                return 2;
+            case "lg":
+                return 4;
+            case "xl":
+                return 8;
+            default:
+                return "initial";
+        }
+    };
+    return (React.createElement("hr", { style: {
+            borderTop: "2px solid ".concat(calculateBorderColor(baseColor, "dark")),
+            borderRight: "2px solid ".concat(calculateBorderColor(baseColor, "light")),
+            borderBottom: "2px solid ".concat(calculateBorderColor(baseColor, "light")),
+            borderLeft: "2px solid ".concat(calculateBorderColor(baseColor, "dark")),
+            backgroundColor: baseColor,
+            height: getHeight(),
+        } }));
+};
+
 exports.Blink = Blink;
 exports.Button = Button;
 exports.Center = Center;
+exports.HR = HR;
 //# sourceMappingURL=index.js.map

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { calculateBorderColor } from "../helpers";
 
 export interface ButtonProps {
   label: string;
@@ -43,23 +44,6 @@ const Button = (props: ButtonProps) => {
     }
   };
 
-  const calculateBorderColor = (borders: string): string => {
-    const colorSubS = baseColor.substring(1);
-    const r = parseInt(colorSubS[0], 16);
-    const g = parseInt(colorSubS[1], 16);
-    const b = parseInt(colorSubS[2], 16);
-
-    const calcColorChannel = (val: number) => {
-      const result = borders === "light" ? val + 3 : val - 4;
-      return Math.min(15, result).toString(16);
-    };
-
-    const newR = calcColorChannel(r);
-    const newG = calcColorChannel(g);
-    const newB = calcColorChannel(b);
-    return `#${newR}${newG}${newB}`;
-  };
-
   const calcMouseDownBGColor = (): string => {
     const colorSubS = baseColor.substring(1);
     const r = parseInt(colorSubS[0], 16);
@@ -67,7 +51,11 @@ const Button = (props: ButtonProps) => {
     const b = parseInt(colorSubS[2], 16);
 
     const calcColorChannel = (val: number) => {
-      return Math.min(15, val - 1).toString(16);
+      const result = Math.min(15, val - 1);
+      if (result < 0) {
+        return "0";
+      }
+      return result.toString(16);
     };
 
     const newR = calcColorChannel(r);
@@ -83,16 +71,16 @@ const Button = (props: ButtonProps) => {
       onMouseLeave={() => setIsMouseDown(false)}
       style={{
         cursor: "pointer",
-        borderTop: `${getBorderSize()}px solid ${calculateBorderColor(
+        borderTop: `2px solid ${calculateBorderColor(baseColor,
           isMouseDown ? "dark" : "light"
         )}`,
-        borderRight: `${getBorderSize()}px solid ${calculateBorderColor(
+        borderRight: `2px solid ${calculateBorderColor(baseColor,
           isMouseDown ? "light" : "dark"
         )}`,
-        borderBottom: `${getBorderSize()}px solid ${calculateBorderColor(
+        borderBottom: `2px solid ${calculateBorderColor(baseColor,
           isMouseDown ? "light" : "dark"
         )}`,
-        borderLeft: `${getBorderSize()}px solid ${calculateBorderColor(
+        borderLeft: `2px solid ${calculateBorderColor(baseColor,
           isMouseDown ? "dark" : "light"
         )}`,
         backgroundColor: isMouseDown ? calcMouseDownBGColor() : baseColor,
