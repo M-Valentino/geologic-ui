@@ -77,12 +77,7 @@ const Button = (props: ButtonProps) => {
       onMouseUp={() => setIsMouseDown(false)}
       onMouseLeave={() => setIsMouseDown(false)}
       style={{
-        // all and outline are for maintaining compatbility accross browsers.
-        all: "unset",
-        outline: "revert",
         cursor: "pointer",
-        userSelect: "none",
-        fontFamily: "sans-serif",
         borderTop: `${getBorderSize()}px solid ${calculateBorderColor(
           isMouseDown ? "dark" : "light"
         )}`,
