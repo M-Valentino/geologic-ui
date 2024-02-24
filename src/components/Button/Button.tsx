@@ -35,8 +35,8 @@ const Button = (props: ButtonProps) => {
     }
   };
 
-  const calculateBorderColor = (colorParam: string, borders: string): string => {
-    const colorSubS = colorParam.substring(1);
+  const calculateBorderColor = (borders: string): string => {
+    const colorSubS = baseColor.substring(1);
     // Convert the color to RGB
     const r = parseInt(colorSubS[0], 16);
     const g = parseInt(colorSubS[1], 16);
@@ -60,22 +60,12 @@ const Button = (props: ButtonProps) => {
         // all and outline are for maintaining compatbility accross browsers.
         all: "unset",
         outline: "revert",
-        borderTop: `${getBorderSize()}px solid ${calculateBorderColor(
-          baseColor,
-          "tl"
-        )}`,
-        borderRight: `${getBorderSize()}px solid ${calculateBorderColor(
-          baseColor,
-          "br"
-        )}`,
+        borderTop: `${getBorderSize()}px solid ${calculateBorderColor("tl")}`,
+        borderRight: `${getBorderSize()}px solid ${calculateBorderColor("br")}`,
         borderBottom: `${getBorderSize()}px solid ${calculateBorderColor(
-          baseColor,
           "br"
         )}`,
-        borderLeft: `${getBorderSize()}px solid ${calculateBorderColor(
-          baseColor,
-          "tl"
-        )}`,
+        borderLeft: `${getBorderSize()}px solid ${calculateBorderColor("tl")}`,
         backgroundColor: baseColor,
         fontSize: getTextSize(),
         paddingLeft: getTextSize() / 2,
