@@ -1,5 +1,5 @@
 # Geologic UI
-Geologic UI is a component library inspired by 90's style web design on Geocities. It is compatible with Next.js and React. It contains buttons, horizontal rules, HTML5 compliant center tag and Blink tag. More components are to come.
+Geologic UI is a component library inspired by 90's style web design on Geocities. It contains buttons, icons, horizontal rules, an HTML5 compliant center tag, and an HTML5 compliant Blink tag. More components are soon to come. It is compatible with Next.js and React. 
 
 `npm i geologic-ui`
 
