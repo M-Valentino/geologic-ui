@@ -23,4 +23,10 @@ interface HRProps {
 }
 declare const HR: (props: HRProps) => JSX.Element;
 
-export { Blink, Button, Center, HR };
+interface IconProps {
+    name: string;
+    size?: string;
+}
+declare const Icon: (props: IconProps) => JSX.Element;
+
+export { Blink, Button, Center, HR, Icon };
