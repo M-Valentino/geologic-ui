@@ -5,7 +5,7 @@ export const calculateBorderColor = (baseColor: string, borders: string): string
   const b = parseInt(colorSubS[2], 16);
 
   const calcColorChannel = (val: number) => {
-    const result = borders === "light" ? val + 3 : val - 4;
+    const result = borders === "light" ? val + 4 : val - 4;
     if (result < 0) {
       return "0";
     }

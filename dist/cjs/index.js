@@ -14,7 +14,7 @@ var calculateBorderColor = function (baseColor, borders) {
     var g = parseInt(colorSubS[1], 16);
     var b = parseInt(colorSubS[2], 16);
     var calcColorChannel = function (val) {
-        var result = borders === "light" ? val + 3 : val - 4;
+        var result = borders === "light" ? val + 4 : val - 4;
         if (result < 0) {
             return "0";
         }
