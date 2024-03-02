@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { calculateBorderColor } from "../UnderConsstruction/helpers";
+import { calculateBorderColor } from "../UnderConstruction/helpers";
 
 export interface ButtonProps {
   label: string;

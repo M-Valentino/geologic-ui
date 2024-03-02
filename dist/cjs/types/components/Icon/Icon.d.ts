@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface IconProps {
     name: string;
     size?: string;

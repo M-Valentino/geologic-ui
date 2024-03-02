@@ -215,5 +215,27 @@ var Icon = function (props) {
     return (React.createElement("img", { src: iconSRCs[props.name], alt: props.name.replace("_", " "), style: { imageRendering: "pixelated" }, width: 27 * getScale(), height: 27 * getScale() }));
 };
 
-export { Blink, Button, Center, HR, Icon };
+var UnderConstruction = function (props) {
+    var getHeight = function () {
+        switch (props.size || "") {
+            case "sm":
+                return 10;
+            case "md":
+                return 20;
+            case "lg":
+                return 30;
+            case "xl":
+                return 40;
+            default:
+                return 10;
+        }
+    };
+    return (React.createElement("div", { style: {
+            width: "100%",
+            height: getHeight(),
+            background: "repeating-linear-gradient(135deg, #fe0 0px, #fe0 24px, #000 24px, #000 48px)",
+        } }));
+};
+
+export { Blink, Button, Center, HR, Icon, UnderConstruction };
 //# sourceMappingURL=index.js.map

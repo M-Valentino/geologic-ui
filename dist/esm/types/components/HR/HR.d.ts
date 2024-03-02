@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface HRProps {
     size?: string;
     color?: string;

@@ -223,9 +223,32 @@ var Icon = function (props) {
     return (React__default["default"].createElement("img", { src: iconSRCs[props.name], alt: props.name.replace("_", " "), style: { imageRendering: "pixelated" }, width: 27 * getScale(), height: 27 * getScale() }));
 };
 
+var UnderConstruction = function (props) {
+    var getHeight = function () {
+        switch (props.size || "") {
+            case "sm":
+                return 10;
+            case "md":
+                return 20;
+            case "lg":
+                return 30;
+            case "xl":
+                return 40;
+            default:
+                return 10;
+        }
+    };
+    return (React__default["default"].createElement("div", { style: {
+            width: "100%",
+            height: getHeight(),
+            background: "repeating-linear-gradient(135deg, #fe0 0px, #fe0 24px, #000 24px, #000 48px)",
+        } }));
+};
+
 exports.Blink = Blink;
 exports.Button = Button;
 exports.Center = Center;
 exports.HR = HR;
 exports.Icon = Icon;
+exports.UnderConstruction = UnderConstruction;
 //# sourceMappingURL=index.js.map
