@@ -1,5 +1,5 @@
 import React from "react";
-import { calculateBorderColor } from "../helpers";
+import { calculateBorderColor } from "../UnderConsstruction/helpers";
 
 export interface HRProps {
   size?: string;
